@@ -1,0 +1,23 @@
+.previous-location-box{
+    margin-top: 10%;
+   
+}
+.prev-location{
+    opacity: 0.4;
+}
+.location-box{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 1rem;
+}
+.center-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-clear{
+    padding: 10px;
+    margin: 10px;
+}

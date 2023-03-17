@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component sanpshot test should render correctly 1`] = `
+<div
+  className="App"
+>
+  <nav
+    className="navbar"
+  >
+    <a
+      className="nav-link"
+      data-testid="navigation-locations-tab"
+      href="/"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+    <a
+      className="nav-link"
+      data-testid="navigation-map-tab"
+      href="/map"
+      onClick={[Function]}
+    >
+      Map
+    </a>
+  </nav>
+  <div>
+    Loading...
+  </div>
+</div>
+`;
