@@ -12,3 +12,8 @@
     flex-direction: column;
     gap: 1rem;
 }
+
+.leaflet-container {
+    width: 100wh; 
+    height: 100vh;
+  }

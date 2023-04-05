@@ -1,7 +1,6 @@
 import  { useEffect, useState } from 'react'
 
 interface Location {
-   
     lat: number;
     lng: number;
   }

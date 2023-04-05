@@ -26,11 +26,12 @@ const Home = () => {
           `https://api.opencagedata.com/geocode/v1/json?q=${location?.lat}+${location?.lng}&key=813b9891c2474af5ac83956ff1f14fca`
         );
         const data = await response.json();
+        console.log(data);
         const newLocation = {
           location_name: data.results[0].formatted,
           time: new Date().toLocaleString(),
-          latitude: 3,
-          longitude: 4,
+          latitude: +data.results[0].geometry.lat,
+          longitude: +data.results[0].geometry.lng,
         };
         setCurrentLocation(newLocation);
       } catch (error) {
@@ -44,8 +45,6 @@ const Home = () => {
   }, [location, locations]);
 
   useEffect(() => {
-    const INTERVAL_DURATION = 1000;
-
     if (currentLocation) {
       const intervalId = setInterval(async () => {
         setLocations((prevLocations) => {
@@ -62,14 +61,14 @@ const Home = () => {
           method: "POST",
           body: JSON.stringify(currentLocation),
         });
-      }, INTERVAL_DURATION);
+      }, 5 * 60 * 1000);
 
       return () => clearInterval(intervalId);
     }
   }, [currentLocation, setLocations]);
 
   if (!currentLocation) {
-    return <div>Loading...</div>;
+    return <div data-testid='loading'>Loading...</div>;
   }
 
   const { location_name, time } = currentLocation;
@@ -77,7 +76,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1 data-testid="list-current-item">Welcome to the Location Tracker!</h1>
-      <label htmlFor="currentLocation" data-testid="list-current-label"></label>
+      <label htmlFor="currentLocation" data-testid="list-current-label">current location</label>
       <p data-testid="list-current-name">
         Your current location is: <strong>{location_name}</strong>
       </p>

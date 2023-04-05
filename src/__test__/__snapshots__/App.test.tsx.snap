@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component sanpshot test should render correctly 1`] = `
+exports[`App should render correctly 1`] = `
 <div
   className="App"
 >
@@ -24,7 +24,9 @@ exports[`App component sanpshot test should render correctly 1`] = `
       Map
     </a>
   </nav>
-  <div>
+  <div
+    data-testid="loading"
+  >
     Loading...
   </div>
 </div>

@@ -1,14 +1,9 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Map from "./pages/Map";
+import Home, { LocationData } from "./pages/Home";
 import { createContext, useState } from "react";
-
-interface LocationData {
-  location_name: string;
-  time: string;
-}
+import MapDisplay from "./pages/MapDisplay";
 
 interface HomeProp {
   locations: LocationData[] | [];
@@ -29,7 +24,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/map" element={<Map />} />
+            <Route path="/map" element={<MapDisplay />} />
           </Routes>
         </BrowserRouter>
       </div>
